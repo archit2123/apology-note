@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090f18">
+  <meta name="description" content="A quiet, sincere apology for Arna, with no expectation of a reply.">
+  <title>For Arna — I’m sorry</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --night: #090f18;
+      --night-blue: #101b29;
+      --ink: #25312f;
+      --muted: #a8ada9;
+      --gold: #d9b987;
+      --paper: #f2ede3;
+      --paper-ink: #34413d;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      --sans: "Aptos", "Segoe UI", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { min-width: 320px; scroll-behavior: smooth; background: var(--night); }
+    body {
+      margin: 0;
+      color: #f4f0e9;
+      font-family: var(--sans);
+      background: var(--night);
+    }
+    a { color: inherit; }
+
+    .opening {
+      position: relative;
+      display: grid;
+      min-height: 100svh;
+      overflow: hidden;
+      isolation: isolate;
+      place-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,9,15,.34), transparent 28%, transparent 72%, rgba(5,9,15,.35)),
+        linear-gradient(180deg, rgba(5,9,15,.63), rgba(8,13,22,.11) 48%, rgba(5,9,15,.68)),
+        url("quiet-evening-clove.png") center 55% / cover no-repeat;
+      box-shadow: inset 0 30px 0 rgba(4,7,11,.78), inset 0 -32px 0 rgba(4,7,11,.83);
+    }
+    .opening::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      opacity: .55;
+      background-image:
+        radial-gradient(1px 1px at 13% 18%, rgba(255,255,255,.8) 99%, transparent),
+        radial-gradient(1px 1px at 27% 33%, rgba(255,255,255,.55) 99%, transparent),
+        radial-gradient(1.4px 1.4px at 72% 20%, rgba(255,255,255,.75) 99%, transparent),
+        radial-gradient(1px 1px at 84% 41%, rgba(255,255,255,.55) 99%, transparent),
+        radial-gradient(1px 1px at 61% 11%, rgba(255,255,255,.6) 99%, transparent),
+        radial-gradient(1px 1px at 39% 24%, rgba(255,255,255,.45) 99%, transparent),
+        radial-gradient(1px 1px at 92% 13%, rgba(255,255,255,.6) 99%, transparent);
+      background-size: 100% 100%;
+      pointer-events: none;
+    }
+    .opening::after {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, rgba(5,9,15,.45), transparent 25%, transparent 75%, rgba(5,9,15,.42)),
+                  linear-gradient(180deg, rgba(4,8,14,.08) 45%, rgba(5,9,15,.15));
+      pointer-events: none;
+    }
+    .landscape {
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: min(46vh, 420px);
+      min-height: 230px;
+      opacity: .92;
+    }
+    .clove-watermark {
+      position: absolute;
+      z-index: 1;
+      top: 39%;
+      right: 8vw;
+      width: min(32vw, 360px);
+      height: auto;
+      opacity: .13;
+      filter: blur(.2px);
+      transform: rotate(-9deg);
+      pointer-events: none;
+    }
+    .opening-content {
+      position: relative;
+      z-index: 3;
+      width: min(620px, calc(100% - 48px));
+      margin: -4vh auto 0 7vw;
+      text-align: left;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      color: #d4c4a8;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .27em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .kicker::before, .kicker::after {
+      width: 34px;
+      height: 1px;
+      background: rgba(217, 185, 135, .56);
+      content: "";
+    }
+    h1 {
+      margin: 30px 0 21px;
+      font-family: var(--serif);
+      font-size: clamp(60px, 8.2vw, 118px);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .91;
+      text-shadow: 0 3px 35px rgba(0,0,0,.22);
+    }
+    h1 span { color: var(--gold); font-style: italic; font-weight: 400; }
+    .intro {
+      max-width: 430px;
+      margin: 0;
+      color: #c5c8c5;
+      font-family: var(--serif);
+      font-size: clamp(18px, 2.1vw, 23px);
+      line-height: 1.55;
+    }    .read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 40px;
+      padding: 10px 2px;
+      color: #e0d8c9;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .19em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .read-link span {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid rgba(217, 185, 135, .54);
+      border-radius: 50%;
+      color: var(--gold);
+      transition: background-color .2s ease, transform .2s ease;
+    }
+    .read-link:hover span, .read-link:focus-visible span {
+      transform: translateY(2px);
+      background: rgba(217, 185, 135, .12);
+    }
+    .read-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+    .scene-mark {
+      position: absolute;
+      z-index: 3;
+      right: 38px;
+      bottom: 31px;
+      color: rgba(238, 231, 218, .55);
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .note-section {
+      position: relative;
+      display: grid;
+      min-height: 100svh;
+      overflow: hidden;
+      place-items: center;
+      padding: 100px 24px 88px;
+      color: var(--paper-ink);
+      background:
+        linear-gradient(180deg, rgba(15, 19, 31, .45), rgba(13, 17, 29, .62)),
+        url("clove-note-background.png") 78% center / cover no-repeat;
+      scroll-margin-top: 0;
+    }
+    .note-section::before, .note-section::after {
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, rgba(217,185,135,.17) 26%, rgba(217,185,135,.08) 75%, transparent);
+      content: "";
+    }
+    .note-section::before { left: clamp(18px, 6vw, 92px); }
+    .note-section::after { right: clamp(18px, 6vw, 92px); }
+    .note-frame { position: relative; z-index: 1; width: min(690px, 100%); }
+    .note-overline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 0 0 23px;
+      color: #d6c7ad;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .24em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .note-overline::before, .note-overline::after { width: 27px; height: 1px; background: rgba(217,185,135,.48); content: ""; }
+    .letter {
+      position: relative;
+      padding: clamp(34px, 6vw, 64px) clamp(27px, 7.5vw, 76px) 40px;
+      border: 1px solid rgba(255,255,255,.58);
+      color: var(--paper-ink);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.45), transparent 38%),
+        var(--paper);
+      box-shadow: 0 35px 90px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.12);
+    }
+    .letter::before {
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(99, 91, 74, .11);
+      content: "";
+      pointer-events: none;
+    }
+    .letter-content { position: relative; }
+    .letter-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 21px;
+      border-bottom: 1px solid rgba(89, 92, 78, .18);
+      color: #74796f;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .letter-topline span:last-child { color: #a0855a; }
+    .salutation {
+      margin: 27px 0 15px;
+      color: #293832;
+      font-family: var(--serif);
+      font-size: 33px;
+      font-weight: 400;
+      letter-spacing: -.04em;
+    }    .letter p {
+      margin: 0 0 16px;
+      color: #515a54;
+      font-size: 15px;
+      line-height: 1.82;
+    }
+    .letter p.lead { color: #34443c; font-size: 16px; }
+    .letter p:last-of-type { margin-bottom: 0; }
+    .signoff {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 27px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(89, 92, 78, .18);
+      color: #6d7269;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-style: italic;
+    }
+    .signoff::before { width: 27px; height: 1px; background: #ae8960; content: ""; }
+    .endnote {
+      margin: 24px 0 0;
+      color: rgba(237, 230, 217, .62);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .endnote span { padding: 0 8px; color: var(--gold); }
+    .clove-note {
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      align-items: center;
+      gap: 15px;
+      margin: 24px 0 0;
+      padding: 15px 19px;
+      border: 1px solid rgba(215, 198, 239, .25);
+      background: linear-gradient(110deg, rgba(151, 122, 193, .15), rgba(38, 41, 62, .3));
+    }
+    .smoke-doodle { display: block; width: 54px; height: 46px; }
+    .clove-kicker {
+      margin: 0 0 5px;
+      color: #d8c6f0;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .clove-copy {
+      margin: 0;
+      color: #e9e5ed;
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .closing-note {
+      margin-top: 25px;
+      padding: 25px 20px 18px;
+      border-top: 1px solid rgba(217, 185, 135, .24);
+      text-align: center;
+    }
+    .closing-kicker {
+      margin: 0 0 9px;
+      color: #d6c7ad;
+      font-size: 8px;
+      font-weight: 650;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .closing-note h3 {
+      margin: 0;
+      color: #f5eee3;
+      font-family: var(--serif);
+      font-size: clamp(25px, 4vw, 32px);
+      font-weight: 400;
+      letter-spacing: -.03em;
+    }
+    .closing-copy {
+      max-width: 430px;
+      margin: 9px auto 17px;
+      color: rgba(237, 230, 217, .8);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .answer-buttons { display: flex; justify-content: center; gap: 10px; }
+    .answer-button {
+      min-width: 92px;
+      padding: 10px 20px;
+      border: 1px solid rgba(217, 185, 135, .48);
+      border-radius: 999px;
+      color: #f3eadb;
+      background: rgba(255,255,255,.035);
+      font: 600 11px var(--sans);
+      cursor: pointer;
+      transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .answer-button:first-child { color: #18221f; background: #dbc29a; border-color: #dbc29a; }
+    .answer-button:hover { transform: translateY(-1px); border-color: #e7d5b8; }
+    .answer-button:first-child:hover { background: #ead6b4; }
+    .answer-button:focus-visible { outline: 2px solid #f3e5cd; outline-offset: 3px; }
+    .answer-message {
+      margin: 15px auto 0;
+      color: #e8dbbf;
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .answer-message[hidden] { display: none; }    @media (max-width: 620px) {
+      .clove-watermark {
+      position: absolute;
+      z-index: 1;
+      top: 39%;
+      right: 8vw;
+      width: min(32vw, 360px);
+      height: auto;
+      opacity: .13;
+      filter: blur(.2px);
+      transform: rotate(-9deg);
+      pointer-events: none;
+    }
+    .opening-content { width: calc(100% - 34px); margin-top: -3vh; }
+      h1 { margin-top: 25px; font-size: clamp(58px, 15vw, 91px); }
+      .intro { max-width: 330px; margin: 0; font-size: 19px; }
+      .kicker { gap: 8px; font-size: 9px; letter-spacing: .19em; }
+      .kicker::before, .kicker::after { width: 20px; }
+      .landscape { height: 34vh; min-height: 200px; }
+      .opening { background-position: center, center, 72% center; }
+      .note-section { background-position: center, right center; }
+      .scene-mark { right: 19px; bottom: 20px; font-size: 8px; }
+      .note-section { padding: 75px 20px 64px; }
+      .note-section::before { left: 8px; }
+      .note-section::after { right: 8px; }
+      .letter { padding: 32px 25px 31px; }
+      .letter::before { inset: 6px; }
+      .letter p { font-size: 14px; line-height: 1.76; }
+      .letter p.lead { font-size: 15px; }
+      .letter-topline { font-size: 8px; letter-spacing: .13em; }
+      .clove-note { grid-template-columns: 45px 1fr; gap: 11px; padding: 13px 14px; }
+      .smoke-doodle { width: 45px; height: 40px; }
+      .clove-copy { font-size: 14px; }
+      .closing-note { padding-inline: 5px; }
+
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="opening" aria-labelledby="title">
+      <div class="opening-content">
+        <p class="kicker">A quiet note for Arna</p>
+        <h1 id="title">Arna,<br><span>I’m sorry.</span></h1>
+        <p class="intro">A simple apology, with no expectation of a reply.</p>
+        <a class="read-link" href="#the-note" aria-label="Read the note to Arna">
+          Read the note
+          <span aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 1.8v8.4M2.8 7l3.2 3.2L9.2 7"/></svg>
+          </span>
+        </a>
+      </div>
+      <svg class="clove-watermark" viewBox="0 0 240 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 137c-24 0-39-15-39-34 0-17 12-31 29-34C43 39 65 18 94 18c21 0 39 11 49 29 6-4 13-6 20-6 23 0 41 18 41 41 16 4 26 17 26 32 0 17-15 23-31 23H50Z" fill="#DED1EF"/>
+        <path d="M58 84c12-18 28-23 46-19m18 13c14-10 30-10 44-2" stroke="#F2DFA6" stroke-width="4" stroke-linecap="round"/>
+        <path d="m40 44 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1 4-9Zm157 12 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z" fill="#F1D68C"/>
+      </svg>      <div class="scene-mark">Just saying sorry</div>
+    </section>
+
+    <section class="note-section" id="the-note" aria-labelledby="note-title">
+      <div class="note-frame">
+        <p class="note-overline">The note</p>
+        <article class="letter">
+          <div class="letter-content">
+            <div class="letter-topline"><span>A few honest words</span><span>For Arna</span></div>
+            <h2 class="salutation" id="note-title">Arna,</h2>
+            <p class="lead">I’m sorry I hurt you. I’ve thought about what happened, and I know I messed up. I’m not going to make excuses.</p>
+            <p>You’re my best friend, and I really value our friendship. I want to be a more thoughtful friend, and I’ll work on that. I know you don’t owe me forgiveness or a conversation.</p>
+            <p>I really value our friendship. If you ever feel like talking, I’ll listen. There’s no rush to answer this note, and I’ll respect whatever feels comfortable for you.</p>
+            <div class="signoff">Your friend</div>
+          </div>
+        </article>
+        <aside class="clove-note" aria-label="A little Clove reference">
+          <svg class="smoke-doodle" viewBox="0 0 70 55" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17 42c-6 0-10-4.2-10-9.2 0-4.5 3.3-8.1 7.7-8.8.8-8.1 7.3-14.3 15.3-14.3 5.5 0 10.3 2.8 13 7.1 1.6-.9 3.4-1.4 5.3-1.4 6.3 0 11.4 5.1 11.4 11.4 4.4 1 7.3 4.5 7.3 8.6 0 4-3.3 6.6-8.1 6.6H17Z" fill="#DCCCF2" stroke="#BBA6D9" stroke-width="1.5"/>
+            <path d="M24 31.5h.2m11.8 0h.2" stroke="#635675" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M27.5 36c2.5 2.4 5.7 2.4 8.2 0" stroke="#635675" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="m13 12 1.2 2.5 2.8.4-2 1.9.5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-1.9 2.8-.4L13 12Zm46 1 1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3 1-2Z" fill="#F1D68C"/>
+          </svg>
+          <div>
+            <p class="clove-kicker">A small Clove detail</p>
+            <p class="clove-copy">I know you love Clove, so I added a little smoke cloud for you.</p>
+          </div>
+        </aside>
+        <section class="closing-note" aria-labelledby="forgiveness-title">
+          <p class="closing-kicker">Only if you feel like answering</p>
+          <h3 id="forgiveness-title">Would you forgive me?</h3>
+          <p class="closing-copy">No pressure, Arna. Choosing only shows a message here; nothing gets sent or saved.</p>
+          <div class="answer-buttons" role="group" aria-label="Choose an answer">
+            <button class="answer-button" type="button" data-answer="yes">Yes</button>
+            <button class="answer-button" type="button" data-answer="no">No</button>
+          </div>
+          <p class="answer-message" id="answer-message" role="status" aria-live="polite" hidden></p>
+        </section>
+        <p class="endnote"><span aria-hidden="true">✦</span> Whatever you decide is okay <span aria-hidden="true">✦</span></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const answerMessages = {
+      yes: "Thank you for considering it. I’ll keep working to be a better friend.",
+      no: "I understand. I’ll respect your answer and keep working on being a better friend."
+    };
+    const answerMessage = document.getElementById("answer-message");
+    document.querySelectorAll(".answer-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        answerMessage.textContent = answerMessages[button.dataset.answer];
+        answerMessage.hidden = false;
+      });
+    });
+  </script></body>
+</html>
+
+
+
+
+
